@@ -1,0 +1,878 @@
+<vismat>
+<Asset url="/velvet WINE1/Texture/BitmapBuffer" type="bitmap" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="bitmap" name="BitmapBuffer">
+      <parameters>
+        <parameter listType="none" handler="default" type="bool" name="frame_sequence" label="Frame Sequence">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="FileBrowserHandler" type="string" name="file" label="File">
+          <value>C:/Users/ARQEDDIS/Desktop/VELVET antonio_medina/BUMP-velvet seamless.jpg</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="frame_offset" label="Frame Offset">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="ComboBoxHandler" type="integer" name="filter_type" label="Filter Type">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="filter_blur" label="Filter Blur">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="maya_compatible" label="Maya Compatible">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="frame_number" label="Frame Number">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="gamma" label="Gamma">
+          <value>1.000000</value>
+        </parameter>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Texture/UVWGen" type="uvw" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="uvw" name="UVWGenChannel">
+      <parameters>
+        <parameter listType="none" handler="TextureTransformHandler" type="componentTransform" name="uvw_transform" label="uvw_transform">
+          <value>
+            <componentTransform>
+              <x_rotation>0.000000</x_rotation>
+              <y_rotation>0.000000</y_rotation>
+              <z_rotation>0.000000</z_rotation>
+              <x_scale>0.025000</x_scale>
+              <y_scale>0.025000</y_scale>
+              <z_scale>1.000000</z_scale>
+              <x_mirror>0</x_mirror>
+              <y_mirror>0</y_mirror>
+              <z_mirror>0</z_mirror>
+              <x_offset>0.000000</x_offset>
+              <y_offset>0.000000</y_offset>
+              <z_offset>0.000000</z_offset>
+            </componentTransform>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_u" label="crop_u">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output vector texture" name="uvw_coords" label="uvw_coords"/>
+        <parameter listType="none" handler="default" type="bool" name="use_double_sided_mode" label="Enable double-sided mode">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_mode" label="wrap_mode">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="plugin" name="uvwgen" label="uvwgen">
+          <value></value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_u" label="wrap_u">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_w" label="wrap_w">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_v" label="wrap_v">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_w" label="crop_w">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="uvw_channel" label="Channel">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="vector" name="coverage" label="coverage">
+          <value>
+            <x>1.000000</x>
+            <y>1.000000</y>
+            <z>1.000000</z>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_v" label="crop_v">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="transform" name="tex_transform" label="tex_transform">
+          <value>
+            <vector>
+              <x>1.000000</x>
+              <y>0.000000</y>
+              <z>0.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>1.000000</y>
+              <z>0.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>0.000000</y>
+              <z>1.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>0.000000</y>
+              <z>0.000000</z>
+            </vector>
+          </value>
+        </parameter>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Texture" type="texture" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="texture" name="TexBitmap">
+      <parameters>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_amount" label="Amount">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="jitter" label="Jitter">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="invert_alpha" label="Invert Alpha">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output acolor texture" name="color" label="Color"/>
+        <parameter listType="none" handler="None" type="plugin" name="bitmap" label="Bitmap">
+          <value>/velvet WINE1/Texture/BitmapBuffer</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="alpha_from_intensity" label="Alpha From Intensity">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="compatibility_with" label="compatibility with">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="invert" label="Invert">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="plugin" name="uvwgen" label="uvwgen">
+          <value>/velvet WINE1/Texture/UVWGen</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output float texture" name="out_alpha" label="out_alpha"/>
+        <parameter listType="none" handler="default" type="bool" name="tile" label="Tile">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_size" label="Size">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="CheckBoxHandler" type="integer" name="uv_noise_on" label="On">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="nouvw_color" label="No UVW Color"/>
+        <parameter listType="none" handler="DoubleSpinBoxHandler" type="float texture" name="alpha_offset" label="Alpha Offset">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="un_noise_phase" label="Phase">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_levels" label="Levels">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output acolor texture" name="out_transparency" label="out_transparency"/>
+        <parameter listType="none" handler="DoubleSpinBoxHandler" type="float texture" name="alpha_mult" label="Alpha Multiplier">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="h" label="Height">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="ComboBoxHandler" type="integer" name="placement_type" label="Placement Type">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="tile_v" label="Tile V">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="tile_u" label="Tile U">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="u" label="U">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="w" label="Width">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="v" label="V">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="color_mult" label="Color Multiplier"/>
+        <parameter listType="none" handler="CheckBoxHandler" type="integer" name="uv_noise_animate" label="Animate">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output float texture" name="out_intensity" label="out_intensity"/>
+        <parameter listType="none" handler="default" type="acolor texture" name="color_offset" label="Color Offset"/>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Diffuse/Texture/Texture/BitmapBuffer" type="bitmap" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="bitmap" name="BitmapBuffer">
+      <parameters>
+        <parameter listType="none" handler="default" type="bool" name="frame_sequence" label="Frame Sequence">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="FileBrowserHandler" type="string" name="file" label="File">
+          <value>C:/Users/ARQEDDIS/Desktop/VELVET antonio_medina/wine-velvet seamless.jpg</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="frame_offset" label="Frame Offset">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="ComboBoxHandler" type="integer" name="filter_type" label="Filter Type">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="filter_blur" label="Filter Blur">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="maya_compatible" label="Maya Compatible">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="frame_number" label="Frame Number">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="gamma" label="Gamma">
+          <value>1.000000</value>
+        </parameter>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Diffuse/Texture/Texture/UVWGen" type="uvw" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="uvw" name="UVWGenChannel">
+      <parameters>
+        <parameter listType="none" handler="TextureTransformHandler" type="componentTransform" name="uvw_transform" label="uvw_transform">
+          <value>
+            <componentTransform>
+              <x_rotation>0.000000</x_rotation>
+              <y_rotation>0.000000</y_rotation>
+              <z_rotation>0.000000</z_rotation>
+              <x_scale>0.025000</x_scale>
+              <y_scale>0.025000</y_scale>
+              <z_scale>1.000000</z_scale>
+              <x_mirror>0</x_mirror>
+              <y_mirror>0</y_mirror>
+              <z_mirror>0</z_mirror>
+              <x_offset>0.000000</x_offset>
+              <y_offset>0.000000</y_offset>
+              <z_offset>0.000000</z_offset>
+            </componentTransform>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_u" label="crop_u">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output vector texture" name="uvw_coords" label="uvw_coords"/>
+        <parameter listType="none" handler="default" type="bool" name="use_double_sided_mode" label="Enable double-sided mode">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_mode" label="wrap_mode">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="plugin" name="uvwgen" label="uvwgen">
+          <value></value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_u" label="wrap_u">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_w" label="wrap_w">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_v" label="wrap_v">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_w" label="crop_w">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="uvw_channel" label="Channel">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="vector" name="coverage" label="coverage">
+          <value>
+            <x>1.000000</x>
+            <y>1.000000</y>
+            <z>1.000000</z>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_v" label="crop_v">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="transform" name="tex_transform" label="tex_transform">
+          <value>
+            <vector>
+              <x>1.000000</x>
+              <y>0.000000</y>
+              <z>0.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>1.000000</y>
+              <z>0.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>0.000000</y>
+              <z>1.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>0.000000</y>
+              <z>0.000000</z>
+            </vector>
+          </value>
+        </parameter>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Diffuse/Texture/Texture" type="texture" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="texture" name="TexBitmap">
+      <parameters>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_amount" label="Amount">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="jitter" label="Jitter">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="invert_alpha" label="Invert Alpha">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output acolor texture" name="color" label="Color"/>
+        <parameter listType="none" handler="None" type="plugin" name="bitmap" label="Bitmap">
+          <value>/velvet WINE1/Diffuse/Texture/Texture/BitmapBuffer</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="alpha_from_intensity" label="Alpha From Intensity">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="compatibility_with" label="compatibility with">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="invert" label="Invert">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="plugin" name="uvwgen" label="uvwgen">
+          <value>/velvet WINE1/Diffuse/Texture/Texture/UVWGen</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output float texture" name="out_alpha" label="out_alpha"/>
+        <parameter listType="none" handler="default" type="bool" name="tile" label="Tile">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_size" label="Size">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="CheckBoxHandler" type="integer" name="uv_noise_on" label="On">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="nouvw_color" label="No UVW Color"/>
+        <parameter listType="none" handler="DoubleSpinBoxHandler" type="float texture" name="alpha_offset" label="Alpha Offset">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="un_noise_phase" label="Phase">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_levels" label="Levels">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output acolor texture" name="out_transparency" label="out_transparency"/>
+        <parameter listType="none" handler="DoubleSpinBoxHandler" type="float texture" name="alpha_mult" label="Alpha Multiplier">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="h" label="Height">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="ComboBoxHandler" type="integer" name="placement_type" label="Placement Type">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="tile_v" label="Tile V">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="tile_u" label="Tile U">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="u" label="U">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="w" label="Width">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="v" label="V">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="color_mult" label="Color Multiplier"/>
+        <parameter listType="none" handler="CheckBoxHandler" type="integer" name="uv_noise_animate" label="Animate">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output float texture" name="out_intensity" label="out_intensity"/>
+        <parameter listType="none" handler="default" type="acolor texture" name="color_offset" label="Color Offset"/>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Diffuse/Texture/Texture1/BitmapBuffer" type="bitmap" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="bitmap" name="BitmapBuffer">
+      <parameters>
+        <parameter listType="none" handler="default" type="bool" name="frame_sequence" label="Frame Sequence">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="FileBrowserHandler" type="string" name="file" label="File">
+          <value>C:/Users/ARQEDDIS/Desktop/VELVET antonio_medina/pink-velvet seamless(FALLOFF).jpg</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="frame_offset" label="Frame Offset">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="ComboBoxHandler" type="integer" name="filter_type" label="Filter Type">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="filter_blur" label="Filter Blur">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="maya_compatible" label="Maya Compatible">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="frame_number" label="Frame Number">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="gamma" label="Gamma">
+          <value>1.000000</value>
+        </parameter>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Diffuse/Texture/Texture1/UVWGen" type="uvw" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="uvw" name="UVWGenChannel">
+      <parameters>
+        <parameter listType="none" handler="TextureTransformHandler" type="componentTransform" name="uvw_transform" label="uvw_transform">
+          <value>
+            <componentTransform>
+              <x_rotation>0.000000</x_rotation>
+              <y_rotation>0.000000</y_rotation>
+              <z_rotation>0.000000</z_rotation>
+              <x_scale>0.025000</x_scale>
+              <y_scale>0.025000</y_scale>
+              <z_scale>1.000000</z_scale>
+              <x_mirror>0</x_mirror>
+              <y_mirror>0</y_mirror>
+              <z_mirror>0</z_mirror>
+              <x_offset>0.000000</x_offset>
+              <y_offset>0.000000</y_offset>
+              <z_offset>0.000000</z_offset>
+            </componentTransform>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_u" label="crop_u">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output vector texture" name="uvw_coords" label="uvw_coords"/>
+        <parameter listType="none" handler="default" type="bool" name="use_double_sided_mode" label="Enable double-sided mode">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_mode" label="wrap_mode">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="plugin" name="uvwgen" label="uvwgen">
+          <value></value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_u" label="wrap_u">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_w" label="wrap_w">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="wrap_v" label="wrap_v">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_w" label="crop_w">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="uvw_channel" label="Channel">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="vector" name="coverage" label="coverage">
+          <value>
+            <x>1.000000</x>
+            <y>1.000000</y>
+            <z>1.000000</z>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="crop_v" label="crop_v">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="transform" name="tex_transform" label="tex_transform">
+          <value>
+            <vector>
+              <x>1.000000</x>
+              <y>0.000000</y>
+              <z>0.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>1.000000</y>
+              <z>0.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>0.000000</y>
+              <z>1.000000</z>
+            </vector>
+            <vector>
+              <x>0.000000</x>
+              <y>0.000000</y>
+              <z>0.000000</z>
+            </vector>
+          </value>
+        </parameter>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Diffuse/Texture/Texture1" type="texture" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="texture" name="TexBitmap">
+      <parameters>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_amount" label="Amount">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="jitter" label="Jitter">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="invert_alpha" label="Invert Alpha">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output acolor texture" name="color" label="Color"/>
+        <parameter listType="none" handler="None" type="plugin" name="bitmap" label="Bitmap">
+          <value>/velvet WINE1/Diffuse/Texture/Texture1/BitmapBuffer</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="alpha_from_intensity" label="Alpha From Intensity">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="compatibility_with" label="compatibility with">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="invert" label="Invert">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="plugin" name="uvwgen" label="uvwgen">
+          <value>/velvet WINE1/Diffuse/Texture/Texture1/UVWGen</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output float texture" name="out_alpha" label="out_alpha"/>
+        <parameter listType="none" handler="default" type="bool" name="tile" label="Tile">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_size" label="Size">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="CheckBoxHandler" type="integer" name="uv_noise_on" label="On">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="nouvw_color" label="No UVW Color"/>
+        <parameter listType="none" handler="DoubleSpinBoxHandler" type="float texture" name="alpha_offset" label="Alpha Offset">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="un_noise_phase" label="Phase">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="uv_noise_levels" label="Levels">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output acolor texture" name="out_transparency" label="out_transparency"/>
+        <parameter listType="none" handler="DoubleSpinBoxHandler" type="float texture" name="alpha_mult" label="Alpha Multiplier">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="h" label="Height">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="ComboBoxHandler" type="integer" name="placement_type" label="Placement Type">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="tile_v" label="Tile V">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="tile_u" label="Tile U">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="u" label="U">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="w" label="Width">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="v" label="V">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="color_mult" label="Color Multiplier"/>
+        <parameter listType="none" handler="CheckBoxHandler" type="integer" name="uv_noise_animate" label="Animate">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output float texture" name="out_intensity" label="out_intensity"/>
+        <parameter listType="none" handler="default" type="acolor texture" name="color_offset" label="Color Offset"/>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Diffuse/Texture" type="texture" layout="" renderer="vray">
+  <plugin>
+    <vrayplugin type="texture" name="TexFalloff">
+      <parameters>
+        <parameter listType="none" handler="default" type="output float texture" name="blend_output" label="blend_output"/>
+        <parameter listType="none" handler="default" type="output acolor texture" name="color" label="color"/>
+        <parameter listType="none" handler="default" type="bool" name="alpha_from_intensity" label="alpha_from_intensity">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="compatibility_with" label="compatibility_with">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="invert" label="invert">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output float texture" name="out_alpha" label="out_alpha"/>
+        <parameter listType="none" handler="ComboBoxHandler" type="integer" name="type" label="type">
+          <value>2</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="fresnel_ior" label="fresnel_ior">
+          <value>1.600000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="invert_alpha" label="invert_alpha">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="dist_near" label="dist_near">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="dist_far" label="dist_far">
+          <value>100.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="color1" label="color1">
+          <value>/velvet WINE1/Diffuse/Texture/Texture</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="nouvw_color" label="nouvw_color"/>
+        <parameter listType="none" handler="default" type="acolor texture" name="color2" label="color2">
+          <value>/velvet WINE1/Diffuse/Texture/Texture1</value>
+        </parameter>
+        <parameter listType="none" handler="DoubleSpinBoxHandler" type="float texture" name="alpha_offset" label="alpha_offset">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="output acolor texture" name="out_transparency" label="out_transparency"/>
+        <parameter listType="none" handler="DoubleSpinBoxHandler" type="float texture" name="alpha_mult" label="alpha_mult">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="vector" name="explicit_dir" label="explicit_dir">
+          <value>
+            <x>0.000000</x>
+            <y>0.000000</y>
+            <z>1.000000</z>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="dist_extrapolate" label="dist_extrapolate">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float texture" name="blend_input" label="blend_input"/>
+        <parameter listType="none" handler="ComboBoxHandler" type="integer" name="direction_type" label="direction_type">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="color_mult" label="color_mult"/>
+        <parameter listType="none" handler="default" type="output float texture" name="out_intensity" label="out_intensity"/>
+        <parameter listType="none" handler="default" type="acolor texture" name="color_offset" label="color_offset"/>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1/Diffuse" type="BRDF" layout="DiffuseLayer" renderer="vray">
+  <plugin>
+    <vrayplugin type="BRDF" name="BRDFDiffuse">
+      <parameters>
+        <parameter gammaCorrect="1" name="color_tex" label="Texture" handler="default" listType="none" type="acolor texture">
+          <value>/velvet WINE1/Diffuse/Texture</value>
+        </parameter>
+        <parameter gammaCorrect="1" name="color" label="Color" handler="default" listType="none" type="color">
+          <value>
+            <r>0.301961</r>
+            <g>0.301961</g>
+            <b>0.301961</b>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="use_color_tex_alpha_as_transparency" label="Use color texture for transparency">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="color_tex_mult" label="Texture Multiplier">
+          <value>1.500000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="transparency_tex_mult" label="Transp. Texture Multiplier">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="color" name="transparency" label="Transparency">
+          <value>
+            <r>0.000000</r>
+            <g>0.000000</g>
+            <b>0.000000</b>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="transparency_tex" label="Transp. Texture"/>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+<Asset url="/velvet WINE1" type="material" layout="defvrmat" renderer="vray">
+  <preview>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</preview>
+  <plugin>
+    <vrayplugin type="material" name="MtlASGVIS">
+      <parameters>
+        <parameter listType="none" handler="default" type="bool" name="displace_continuity" label="Keep continuity">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="refract_tex_mult" label="refract_tex_mult">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="TextureHandler" type="plugin" name="displace_tex" label="displace_tex">
+          <value></value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="displace_view_dependent" label="View dependent">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="cast_shadow" label="Cast Shadows">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="color" name="reflect_color" label="reflect_color">
+          <value>
+            <r>0.000000</r>
+            <g>0.000000</g>
+            <b>0.000000</b>
+          </value>
+        </parameter>
+        <parameter name="trace_reflections_dummy" label="Trace Reflections" handler="default" listType="none" isUserData="1" type="bool">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="gi_tex_mult" label="gi_tex_mult">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="displace_tex_mult" label="displace_tex_mult">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="displace_edge_length" label="Edge length">
+          <value>4.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="displace_use_globals" label="Use globals">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="TextureHandler" type="plugin" name="gi_tex" label="gi_tex">
+          <value></value>
+        </parameter>
+        <parameter listType="none" handler="default" type="color" name="refract_color" label="refract_color">
+          <value>
+            <r>0.000000</r>
+            <g>0.000000</g>
+            <b>0.000000</b>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="override_reflect" label="Reflection">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="ignore_objects" label="On">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="override_gi" label="GI">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="integer" name="displace_max_subdivs" label="Max subdivs">
+          <value>256</value>
+        </parameter>
+        <parameter name="reflect_on_backside_dummy" label="Reflect on Backside" handler="default" listType="none" isUserData="1" type="bool">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="override_bg" label="Background">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="only_visible_in_secondary" label="Only visible in secondary">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="color" name="gi_color" label="gi_color">
+          <value>
+            <r>0.000000</r>
+            <g>0.000000</g>
+            <b>0.000000</b>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="displace_water_level" label="Water Level">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="TextureHandler" type="plugin" name="bump_tex" label="bump_tex">
+          <value>/velvet WINE1/Texture</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="color" name="bg_color" label="bg_color">
+          <value>
+            <r>0.000000</r>
+            <g>0.000000</g>
+            <b>0.000000</b>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="TextureHandler" type="plugin" name="reflect_tex" label="reflect_tex">
+          <value></value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="alpha" label="Alpha Contribution">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="bump_shadows" label="bump_shadows">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="TextureHandler" type="plugin" name="refract_tex" label="refract_tex">
+          <value></value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="double_sided" label="Double-Sided">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="reflect_tex_mult" label="reflect_tex_mult">
+          <value>1.000000</value>
+        </parameter>
+        <parameter name="trace_refractions_dummy" label="Trace Refractions" handler="default" listType="none" isUserData="1" type="bool">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="displace_shift" label="Shift">
+          <value>0.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="override_refract" label="Refraction">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="alpha_tex_mult" label="alpha_tex_mult">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="disable_volume_fog" label="Disable Volume Fog">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="short_circuit" label="Optimize exclusion">
+          <value>0</value>
+        </parameter>
+        <parameter listType="none" handler="TextureHandler" type="plugin" name="bg_tex" label="bg_tex">
+          <value></value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="bump_on" label="Bump">
+          <value>1</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="color" name="material_id_color" label="ID Color">
+          <value>
+            <r>0.000000</r>
+            <g>0.000000</g>
+            <b>0.000000</b>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="bg_tex_mult" label="bg_tex_mult">
+          <value>1.000000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="bool" name="displace_on" label="Displacement">
+          <value>0</value>
+        </parameter>
+        <parameter listType="plugin" handler="default" type="list" name="brdfs" label="brdfs">
+          <value>
+            <list>
+              <entry>/velvet WINE1/Diffuse</entry>
+            </list>
+          </value>
+        </parameter>
+        <parameter listType="none" handler="default" type="float" name="bump_tex_mult" label="bump_tex_mult">
+          <value>0.500000</value>
+        </parameter>
+        <parameter listType="none" handler="default" type="acolor texture" name="alpha_tex" label="alpha_tex"/>
+      </parameters>
+    </vrayplugin>
+  </plugin>
+</Asset>
+</vismat>
