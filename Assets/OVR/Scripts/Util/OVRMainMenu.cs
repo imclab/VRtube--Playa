@@ -95,11 +95,13 @@ public class OVRMainMenu : MonoBehaviour
 	private int    	WidthY			= 23;
 	
 	// Spacing for variables that users can change
+#if !USE_NEW_GUI
 	private int    	VRVarsSX		= 553;
 	private int		VRVarsSY		= 250;
 	private int    	VRVarsWidthX 	= 175;
 	private int    	VRVarsWidthY 	= 23;
-
+    private float   AlphaFadeValue	= 1.0f;
+#endif
     private int    	StepY			= 25;
 
 	// Handle to OVRCameraRig
@@ -123,7 +125,7 @@ public class OVRMainMenu : MonoBehaviour
 	private int    Frames  			= 0; 	
 	private float  TimeLeft			= 0; 				
 	private string strFPS			= "FPS: 0";
-	
+
 	private string strIPD 			= "IPD: 0.000";	
 	
 	/// <summary>
@@ -131,7 +133,7 @@ public class OVRMainMenu : MonoBehaviour
 	/// </summary>
 	public float   PredictionIncrement = 0.001f; // 1 ms
 	private string strPrediction       = "Pred: OFF";	
-	
+
 	private string strFOV     		= "FOV: 0.0f";
 	private string strHeight     	 = "Height: 0.0f";
 	
@@ -142,7 +144,6 @@ public class OVRMainMenu : MonoBehaviour
 	private string strSpeedRotationMultipler    = "Spd. X: 0.0f Rot. X: 0.0f";
 	
 	private bool   LoadingLevel 	= false;		
-	private float  AlphaFadeValue	= 1.0f;
 	private int    CurrentLevel		= 0;
 	
 	// Rift detection
@@ -244,13 +245,7 @@ public class OVRMainMenu : MonoBehaviour
 	        r.localEulerAngles = Vector3.zero;
 
 			Canvas c = NewGUIObject.AddComponent<Canvas>();
-#if (UNITY_5_0)
-			// TODO: Unity 5.0b11 has an older version of the new GUI being developed in Unity 4.6.
-			// Remove this once Unity 5 has a more recent merge of Unity 4.6.
 	        c.renderMode = RenderMode.WorldSpace;
-#else
-	        c.renderMode = RenderMode.WorldSpaceSpace;
-#endif
 	        c.pixelPerfect = false;
 #endif
     }
@@ -260,7 +255,6 @@ public class OVRMainMenu : MonoBehaviour
 	/// </summary>
 	void Start()
 	{		
-		AlphaFadeValue = 1.0f;
 		CurrentLevel   = 0;
 		PrevStartDown  = false;
 		PrevHatDown    = false;
@@ -424,9 +418,11 @@ public class OVRMainMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
 			OVRManager.display.mirrorMode = !OVRManager.display.mirrorMode;
         
+#if !UNITY_ANDROID || UNITY_EDITOR
 		// Escape Application
 		if (Input.GetKeyDown(QuitKey))
 			Application.Quit();
+#endif
 	}
 
     /// <summary>
@@ -558,15 +554,15 @@ public class OVRMainMenu : MonoBehaviour
 	/// </summary>
 	void UpdateFPS()
 	{
-		TimeLeft -= Time.deltaTime;
-		Accum += Time.timeScale/Time.deltaTime;
+        TimeLeft -= Time.unscaledDeltaTime;
+        Accum += Time.unscaledDeltaTime;
 		++Frames;
  
     	// Interval ended - update GUI text and start new interval
     	if( TimeLeft <= 0.0 )
     	{
         	// display two fractional digits (f2 format)
-			float fps = Accum / Frames;
+            float fps = Frames / Accum;
 			
 			if(ShowVRVars == true)// limit gc
 				strFPS = System.String.Format("FPS: {0:F2}",fps);
@@ -635,7 +631,7 @@ public class OVRMainMenu : MonoBehaviour
 			OVRDisplay.EyeRenderDesc leftEyeDesc = OVRManager.display.GetEyeRenderDesc(OVREye.Left);
 			OVRDisplay.EyeRenderDesc rightEyeDesc = OVRManager.display.GetEyeRenderDesc(OVREye.Right);
 
-			float scale = OVRManager.instance.nativeTextureScale * OVRManager.instance.virtualTextureScale;
+			float scale = OVRManager.instance.virtualTextureScale;
 			float w = (int)(scale * (float)(leftEyeDesc.resolution.x + rightEyeDesc.resolution.x));
 			float h = (int)(scale * (float)Mathf.Max(leftEyeDesc.resolution.y, rightEyeDesc.resolution.y));
 
@@ -963,16 +959,20 @@ public class OVRMainMenu : MonoBehaviour
         r.localEulerAngles = Vector3.zero;
         r.localScale = new Vector3(0.001f, 0.001f, 0.001f);
         Canvas c = RiftPresentGUIObject.AddComponent<Canvas>();
-#if UNITY_5_0
-		// TODO: Unity 5.0b11 has an older version of the new GUI being developed in Unity 4.6.
-	   	// Remove this once Unity 5 has a more recent merge of Unity 4.6.
 		c.renderMode = RenderMode.WorldSpace;
-#else
-		c.renderMode = RenderMode.WorldSpaceSpace;
-#endif
         c.pixelPerfect = false;
         OVRUGUI.RiftPresentGUI(RiftPresentGUIObject);
 #endif
     }
 	#endregion
+
+    /// <summary>
+    /// Initialize OVRUGUI on OnDestroy
+    /// </summary>
+    void OnDestroy()
+    {
+#if USE_NEW_GUI
+        OVRUGUI.isInited = false;
+#endif
+    }
 }

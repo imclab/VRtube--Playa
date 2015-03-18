@@ -43,12 +43,15 @@ class OVRShimLoader
 
 		PlayerSettings.displayResolutionDialog = ResolutionDialogSetting.HiddenByDefault;
 
-// forcibly enable exclusive mode only in 4.6.0b22+ and Unity 4.5.5p3+
-#if (UNITY_4_6 || (UNITY_4_5 && !(UNITY_4_5_0 || UNITY_4_5_1 || UNITY_4_5_2 || UNITY_4_5_3 || UNITY_4_5_4)))
+// forcibly enable exclusive mode only in Unity 5.0.0b19+, 4.6.0b22+, and 4.5.5p3+
+#if (UNITY_5_0 || UNITY_4_6 || (UNITY_4_5 && !(UNITY_4_5_0 || UNITY_4_5_1 || UNITY_4_5_2 || UNITY_4_5_3 || UNITY_4_5_4)))
+		bool unity_5_0 = false;
 		bool unity_4_6 = false;
 		bool unity_4_5_5 = false;
 
-#if (UNITY_4_6)
+#if (UNITY_5_0)
+		unity_5_0 = true;
+#elif (UNITY_4_6)
 		unity_4_6 = true;
 #elif (UNITY_4_5_5)
 		unity_4_5_5 = true;
@@ -61,7 +64,8 @@ class OVRShimLoader
 
 		bool unsupportedUnityVersion = (unity_4_6 && version.Last(char.IsLetter) == 'b' && releaseNumberFound && releaseNumber < 22)
 			|| (unity_4_5_5 && version.Last(char.IsLetter) == 'f')
-			|| (unity_4_5_5 && version.Last(char.IsLetter) == 'p' && releaseNumberFound && releaseNumber < 3);
+			|| (unity_4_5_5 && version.Last(char.IsLetter) == 'p' && releaseNumberFound && releaseNumber < 3)
+			|| (unity_5_0 && version.Last(char.IsLetter) == 'b' && releaseNumberFound && releaseNumber < 19);
 
 		bool useExclusiveModeD3D11 = true;
 		if (unsupportedUnityVersion)
@@ -69,7 +73,16 @@ class OVRShimLoader
 			useExclusiveModeD3D11 = false;
 		}
 
+#if (UNITY_5_0)
+		if (useExclusiveModeD3D11)
+		{
+			// TODO: Enable this once Unity 5.0.0b19+ has been released.
+			//PlayerSettings.d3d11FullscreenMode = D3D11FullscreenMode.ExclusiveMode;
+		}
+#else
 		PlayerSettings.d3d11ForceExclusiveMode = useExclusiveModeD3D11;
+#endif
+
 		PlayerSettings.d3d9FullscreenMode = D3D9FullscreenMode.ExclusiveMode;
 		PlayerSettings.visibleInBackground = true;
 #endif
