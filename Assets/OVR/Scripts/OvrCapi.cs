@@ -181,15 +181,15 @@ namespace Ovr
 	    /// <summary>
         /// The body's position and orientation.
 	    /// </summary>
-		public Posef ThePose;
+		public Posef ThePose; 
 	    /// <summary>
         /// The body's angular velocity in radians per second.        
 	    /// </summary>
-		public Vector3f AngularVelocity;
+		public Vector3f AngularVelocity; 
 	    /// <summary>
         /// The body's velocity in meters per second.   
 	    /// </summary>
-		public Vector3f LinearVelocity;
+		public Vector3f LinearVelocity;  
 	    /// <summary>
         /// The body's angular acceleration in radians per second per second.    
 	    /// </summary>
@@ -197,7 +197,7 @@ namespace Ovr
 	    /// <summary>
         /// The body's acceleration in meters per second per second.
 	    /// </summary>
-		public Vector3f LinearAcceleration;
+		public Vector3f LinearAcceleration;  
 	    /// <summary>
         /// Absolute time of this state sample.
 	    /// </summary>
@@ -343,7 +343,7 @@ namespace Ovr
 	{
         /// <summary>
 		/// Supports chromatic aberration correction.
-        /// </summary>
+        /// </summary>        
 		Chromatic         = 0x01,
         /// <summary>
 		/// Supports timewarp.
@@ -957,7 +957,7 @@ namespace Ovr
 	/// </summary>
 	public class D3D11Config : RenderAPIConfig
 	{
-		public D3D11Config(Sizei rtSize, int multisample, IntPtr ID3D11Device_pDevice, IntPtr ID3D11DeviceContext_pDeviceContext, IntPtr ID3D11RenderTargetView_pBackBufferRT, IntPtr IDXGISwapChain_pSwapChain)
+		public D3D11Config(Sizei rtSize, int multisample, IntPtr ID3D11Device_pDevice, IntPtr ID3D11DeviceContext_pDeviceContext, IntPtr ID3D11RenderTargetView_pBackBufferRT, IntPtr ID3D11BackBufferUAV, IntPtr IDXGISwapChain_pSwapChain)
 		{
 			Header.API = RenderAPIType.D3D11;
 			Header.RTSize = rtSize;
@@ -965,6 +965,7 @@ namespace Ovr
 			_ID3D11Device_pDevice = ID3D11Device_pDevice;
 			_ID3D11DeviceContext_pDeviceContext = ID3D11DeviceContext_pDeviceContext;
 			_ID3D11RenderTargetView_pBackBufferRT = ID3D11RenderTargetView_pBackBufferRT;
+			_ID3D11BackBufferUAV = ID3D11BackBufferUAV;
 			_IDXGISwapChain_pSwapChain = IDXGISwapChain_pSwapChain;
 		}
 
@@ -975,13 +976,15 @@ namespace Ovr
 			config.PlatformData0 = this._ID3D11Device_pDevice;
 			config.PlatformData1 = this._ID3D11DeviceContext_pDeviceContext;
 			config.PlatformData2 = this._ID3D11RenderTargetView_pBackBufferRT;
-			config.PlatformData3 = this._IDXGISwapChain_pSwapChain;
+            config.PlatformData3 = this._ID3D11BackBufferUAV;
+            config.PlatformData4 = this._IDXGISwapChain_pSwapChain;
 			return config;
 		}
 
 		IntPtr _ID3D11Device_pDevice;
 		IntPtr _ID3D11DeviceContext_pDeviceContext;
 		IntPtr _ID3D11RenderTargetView_pBackBufferRT;
+        IntPtr _ID3D11BackBufferUAV;
 		IntPtr _IDXGISwapChain_pSwapChain;
 	}
 
@@ -996,6 +999,7 @@ namespace Ovr
 		public RenderAPIType API;
 		public Sizei TextureSize;
 		public Recti RenderViewport;  // Pixel viewport in texture that holds eye image.
+        public UInt32 _PAD0_;
 	};
 
     /// <summary>
@@ -1095,6 +1099,7 @@ namespace Ovr
             Header.API = RenderAPIType.D3D11;
             Header.TextureSize = textureSize;
             Header.RenderViewport = renderViewport;
+            Header._PAD0_ = 0;
             _ID3D11Texture2D_pTexture = ID3D11Texture2D_pTexture;
             _ID3D11ShaderResourceView_pSRView = ID3D11ShaderResourceView_pSRView;
         }
@@ -1425,6 +1430,9 @@ namespace Ovr
 		// -----------------------------------------------------------------------------------
 		// **** Constructor
 
+		/// <summary>
+		/// Constructs an Hmd that wraps the given native ovrHmd pointer.
+		/// </summary>
 		public Hmd(IntPtr hmdPtr)
 		{
 			this.HmdPtr = hmdPtr;
@@ -1647,6 +1655,7 @@ namespace Ovr
 		}
 
         /// <summary>
+		/// DEPRECATED: Prefer using ovrHmd_GetEyePoses instead
 		/// Function was previously called ovrHmd_GetEyePose
 		/// Returns the predicted head pose to use when rendering the specified eye.
 		/// - Important: Caller must apply HmdToEyeViewOffset before using ovrPosef for rendering
