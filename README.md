@@ -10,3 +10,6 @@ We'd really like to see some inverse kinematics on the avatar, and some cooler e
 If you have any questions, please hit me up at source@vrtube.xxx
 
 --James Ashfield
+
+Building for the GearVR requires an Oculus signature file
+Visit https://developer.oculus.com/tools/osig/ for details

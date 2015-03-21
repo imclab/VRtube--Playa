@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- See https://www.facebook.com/groups/303159406399348/permalink/410968105618477/ -->
-<!-- @generated SignedSource<<3c24758b9929ad94b31f5da3a99e2f9b>> -->
+<!-- @generated SignedSource<<d66e8300f1cc38c86d6d6fdd0149ba52>> -->
 <!-- @nolint -->
-<!-- @mobile export_name="fbandroid 2015-02-24 at 00:37:15 GMT" locale="it_IT" lib_name="vr-lib" -->
+<!-- @mobile export_name="fbandroid 2015-03-12 at 05:18:45 GMT" locale="it_IT" lib_name="vr-lib" -->
 
 <resources>
     <string name="do_not_disturb_on">Non disturbare: attiva</string>
