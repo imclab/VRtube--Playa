@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- See https://www.facebook.com/groups/303159406399348/permalink/410968105618477/ -->
-<!-- @generated SignedSource<<754128c692f6042f284ad73bdca33ae3>> -->
+<!-- @generated SignedSource<<522b5ad5bad5785aad4bdc0c5c89942a>> -->
 <!-- @nolint -->
-<!-- @mobile export_name="fbandroid 2015-02-03 at 03:55:03 GMT" locale="es_LA" lib_name="vr-lib" -->
+<!-- @mobile export_name="fbandroid 2015-03-12 at 05:18:45 GMT" locale="es_LA" lib_name="vr-lib" -->
 
 <resources>
     <string name="do_not_disturb_on">No molestar: activado</string>

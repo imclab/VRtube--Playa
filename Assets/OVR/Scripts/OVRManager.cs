@@ -639,26 +639,26 @@ public class OVRManager : MonoBehaviour
 	private void OnEnable()
 	{
 #if !UNITY_ANDROID || UNITY_EDITOR
-		Camera cam = GetComponent<Camera> ();
-		if (cam == null) {
+		Camera cam = GetComponent<Camera>();
+		if (cam == null)
+		{
 			// Ensure there is a non-RT camera in the scene to force rendering of the left and right eyes.
-			cam = gameObject.AddComponent<Camera> ();
+			cam = gameObject.AddComponent<Camera>();
 			cam.cullingMask = 0;
-//			cam.clearFlags = CameraClearFlags.SolidColor;
-			cam.clearFlags = CameraClearFlags.Skybox;
-			cam.backgroundColor = new Color (0.0f, 0.0f, 0.0f);
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.0f, 0.0f, 0.0f);
 			cam.renderingPath = RenderingPath.Forward;
 			cam.orthographic = true;
 			cam.useOcclusionCulling = false;
 		}
 #endif
 
-		bool isD3d = SystemInfo.graphicsDeviceVersion.Contains ("Direct3D") ||
+		bool isD3d = SystemInfo.graphicsDeviceVersion.Contains("Direct3D") ||
 			Application.platform == RuntimePlatform.WindowsEditor &&
-			SystemInfo.graphicsDeviceVersion.Contains ("emulated");
+				SystemInfo.graphicsDeviceVersion.Contains("emulated");
 		display.flipInput = isD3d;
 
-		StartCoroutine (CallbackCoroutine ());
+		StartCoroutine(CallbackCoroutine());
 	}
 
 	private void OnDisable()
