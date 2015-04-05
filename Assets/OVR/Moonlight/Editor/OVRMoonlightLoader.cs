@@ -19,34 +19,35 @@ limitations under the License.
 
 ************************************************************************************/
 
-using System.Collections;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Callbacks;
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.IO;
 
-/// <summary>
-/// Communicates the editor's Game view rect to the Oculus plugin,
-/// allowing distortion rendering to target it.
-/// </summary>
 [InitializeOnLoad]
-public class OVRGameView
+class OVRMoonlightLoader
 {
-	private static Vector2 cachedPos;
-
-	static OVRGameView()
+    static OVRMoonlightLoader()
 	{
-		EditorApplication.update += OnUpdate;
-	}
+		if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.Android)
+			return;
 
-	static void OnUpdate()
-	{
-		if (OVRManager.instance != null)
-		{
-			Vector2 pos = Handles.GetMainGameViewSize();
-			if (cachedPos != pos)
-			{
-				cachedPos = pos;
-				OVRManager.display.SetViewport(0, 0, (int)pos.x, (int)pos.y);
-			}
-		}
+		// Default screen orientation must be set to landscape left.
+		PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
+
+		// NOTE: On Adreno Lollipop, it is an error to have antiAliasing set on the
+		// main window surface with front buffer rendering enabled. The view will
+		// render black.
+		// On Adreno KitKat, some tiling control modes will cause the view to render
+		// black.
+		QualitySettings.antiAliasing = 1;
+
+		// We sync in the TimeWarp, so we don't want unity syncing elsewhere.
+		QualitySettings.vSyncCount = 0;
+
+		Debug.Log("OVRMoonlightLoader: Apply settings required for Android Mobile VR");
 	}
 }
