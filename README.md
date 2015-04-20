@@ -1,5 +1,5 @@
 # VRtube--Playa
-v0.0.1
+v0.0.2
 
 Welcome to the VRtube holographic player source code!
 In order to actually watch holograms on on Oculus Rift, you'll need to download a holographic recording from VRtube (We have a free demo up that you can use).
